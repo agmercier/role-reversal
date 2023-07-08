@@ -47,7 +47,7 @@ public class SceneSetter : MonoBehaviour
 
         for (int i = 0; i < boxes.Length; i++) {
             boxes[i].transform.position = boxPositions[i].transform.position;
-        }
+        }   
 
         // for(int i = 0; i < boxes.Length; i++){
         //     Debug.Log(i);
@@ -95,8 +95,10 @@ public class SceneSetter : MonoBehaviour
             SceneTwo();
         }
         else if(runNumber == 2){
-            Debug.Log("resetting to lvl 2");
             SceneTwo();
+        }
+        else if(runNumber == 3){
+            SceneThree();
         }
     }
     public void FrouneyGoalReached(){
@@ -104,6 +106,9 @@ public class SceneSetter : MonoBehaviour
             Debug.Log("Error: Frouney goal reached on lvl 1");
         }
         else if(runNumber == 2){
+           SceneThree();
+        }
+        else if(runNumber == 3){
            SceneThree();
         }
     }
