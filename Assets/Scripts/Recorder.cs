@@ -13,6 +13,8 @@ public class Recorder : MonoBehaviour
     bool playedNoRep = false;
     public Vector3 startPosi;
     public GameObject Player;
+    public Transform goalPosition;
+    private Coroutine playingBack;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +40,7 @@ public class Recorder : MonoBehaviour
     public void Play () {
 	    GetComponent<PlayerMovement>().enabled = false;
     }
-    public void Update () {
+    public void FixedUpdate () {
 
         if (playedNoRep == true) {
             doPlay = false;
@@ -48,34 +50,36 @@ public class Recorder : MonoBehaviour
             tempY = transform.position.y;
             nums.Add(tempX);
             nums.Add(tempY);
-            Debug.Log(tempX + "   " + tempY);
 	    }
         if(doPlay == true){
             doPlay = false;
-            StartCoroutine("Playback");
+            playingBack = StartCoroutine("Playback");
             //Debug.Log(doPlay);
 	    }   
-
+    }
+    public void Update(){
         if(Input.GetKeyDown(KeyCode.R)){
             Debug.Log("Recording");
             Record ();
         }
         if(Input.GetKeyDown(KeyCode.P)){
+            Debug.Log("Playback");
             RunIt ();
         }
+    }
 
-    }   
     public IEnumerator Playback ()
     {
         // Debug.Log("Playback");
         // Debug.Log(Player.transform.position.x + "   " + Player.transform.position.y + "      " + Player.transform.position.z);
          GetComponent<PlayerMovement>().enabled = false;
         // Player.transform.position = new Vector3 (10, 10,0);
-	    playedNoRep = true;
+	    //playedNoRep = true;
 	    for (int i = 0; i < nums.Count; i+=2) {
 		    transform.position = new Vector3 (nums[i], nums[i + 1], startPosi.z);
-            yield return new WaitForSeconds(0.007f);
+            yield return new WaitForSeconds(0.015f);
         }
+        transform.position = goalPosition.position;
         yield return null;
     }
     public void Reset () {
@@ -83,6 +87,9 @@ public class Recorder : MonoBehaviour
         SceneManager.LoadScene("Sample Scene");
     }
     public void RunIt () {
+        if(playingBack != null){
+            StopCoroutine(playingBack);
+        }   
         isRec = false;
         doPlay = true;
         //StartCoroutine("Playback");
