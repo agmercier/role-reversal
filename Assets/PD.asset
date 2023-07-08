@@ -30,7 +30,7 @@ MonoBehaviour:
   jumpTimeToApex: 0.25
   jumpForce: 16
   jumpCutGravityMult: 2
-  jumpHangGravityMult: 0.803
+  jumpHangGravityMult: 0.5
   jumpHangTimeThreshold: 1
   jumpHangAccelerationMult: 1.1
   jumpHangMaxSpeedMult: 1.3
