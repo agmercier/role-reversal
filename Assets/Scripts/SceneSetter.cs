@@ -15,7 +15,7 @@ public class SceneSetter : MonoBehaviour
     public GameObject[] boxes;
     public GameObject[] boxPositions;    
 
-    private int runNumber = 0;
+    public int runNumber = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +56,7 @@ public class SceneSetter : MonoBehaviour
         // }
     }
 
-    void SceneOne(){
+    public void SceneOne(){
         Debug.Log("Scene One Start");
         Reset();
         runNumber = 1;
@@ -66,7 +66,7 @@ public class SceneSetter : MonoBehaviour
         playerSmiley.GetComponent<Recorder>().Record();
 
     }
-    void SceneTwo(){
+    public void SceneTwo(){
         Debug.Log("Scene Two Start");
         Reset();
         runNumber = 2;
@@ -78,7 +78,7 @@ public class SceneSetter : MonoBehaviour
         playerFrouney.GetComponent<PlayerMovement>().enabled = true;
         playerFrouney.GetComponent<Recorder>().Record();
     }
-    void SceneThree(){
+    public void SceneThree(){
         Debug.Log("Scene Three Start");
         Reset();
         runNumber = 3;
