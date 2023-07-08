@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
 				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
-				Debug.Log(LastOnGroundTime);
+				//Debug.Log(LastOnGroundTime);
             }		
 
 			//Right Wall Check
