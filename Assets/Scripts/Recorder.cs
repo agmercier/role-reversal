@@ -22,20 +22,21 @@ public class Recorder : MonoBehaviour
 
     }
     public void Record () {
-        if (isRec == true) {
-            isRec = false;
+        // if (isRec == true) {
+        //     isRec = false;
 
-            Player.GetComponent<Recorder>().StopCoroutine("Playback");
-            transform.position = startPosi;
-        }
-        else if (isRec == false) {
+        //     Player.GetComponent<Recorder>().StopCoroutine("Playback");
+        //     transform.position = startPosi;
+        // }
+        // else if (isRec == false) {
             startPosi = transform.position;
 
             isRec = true;
             doPlay = false;
 
+            nums = new List<float>();
             GetComponent<PlayerMovement>().enabled = true;
-	    }
+	   // }
     }
     public void Play () {
 	    GetComponent<PlayerMovement>().enabled = false;

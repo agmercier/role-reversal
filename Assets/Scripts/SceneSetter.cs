@@ -22,10 +22,13 @@ public class SceneSetter : MonoBehaviour
     void SceneOne(){
         runNumber = 1;
         playerSmiley.SetActive(true);
+        playerSmiley.transform.position = smileyStart.position;
         smileyGoal.GetComponent<SmileyGoal>().enabled = true;
 
         playerFrouney.SetActive(false);
         frouneyGoal.GetComponent<FrouneyGoal>().enabled = false;
+
+        playerSmiley.GetComponent<Recorder>().Record();
     }
     void SceneTwo(){
         runNumber = 2;
@@ -38,6 +41,8 @@ public class SceneSetter : MonoBehaviour
         playerFrouney.transform.position = frouneyStart.position;
         playerFrouney.SetActive(true);
         frouneyGoal.GetComponent<FrouneyGoal>().enabled = true;
+
+        playerFrouney.GetComponent<Recorder>().Record();
     }
     void SceneThree(){
         Debug.Log("Finish!!!");
@@ -60,6 +65,17 @@ public class SceneSetter : MonoBehaviour
         }
         else if(runNumber == 2){
            SceneThree();
+        }
+    }
+    public void Spike(){
+        if(runNumber == 1){
+            SceneOne();
+        }
+        else if(runNumber == 2){
+            SceneTwo();
+        }
+        else if(runNumber == 3){
+            SceneThree();
         }
     }
 }

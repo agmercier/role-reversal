@@ -11,10 +11,6 @@ public class SmileyGoal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(isRecording){
-            playerSmiley.GetComponent<Recorder>().Record();
-            isRecording = false;
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other){
