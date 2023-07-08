@@ -6,7 +6,6 @@ public class SmileyGoal : MonoBehaviour
 {
     public GameObject sceneSetter;
     public GameObject playerSmiley;
-    public bool isRecording = true;
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +15,11 @@ public class SmileyGoal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
          if (playerSmiley != null)
         {
-            Debug.Log("Smiley Goal!!!");
-            //playerSmiley.GetComponent<Recorder>().RunIt();
-            sceneSetter.GetComponent<SceneSetter>().SmileyGoalReached();
+            if(other.gameObject.name.Equals("PlayerSmiley")){
+                Debug.Log("Smiley Goal!!!");
+                sceneSetter.GetComponent<SceneSetter>().SmileyGoalReached();
+            }
+            
         }
     }
-}
+}   

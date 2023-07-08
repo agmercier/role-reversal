@@ -22,25 +22,18 @@ public class Recorder : MonoBehaviour
 
     }
     public void Record () {
-        // if (isRec == true) {
-        //     isRec = false;
+        startPosi = transform.position;
 
-        //     Player.GetComponent<Recorder>().StopCoroutine("Playback");
-        //     transform.position = startPosi;
-        // }
-        // else if (isRec == false) {
-            startPosi = transform.position;
+        if(playingBack != null){
+            StopCoroutine(playingBack);
+        }  
+        
+        isRec = true;
+        doPlay = false;
 
-            isRec = true;
-            doPlay = false;
-
-            nums = new List<float>();
-            GetComponent<PlayerMovement>().enabled = true;
-	   // }
-    }
-    public void Play () {
-	    GetComponent<PlayerMovement>().enabled = false;
-    }
+        nums = new List<float>();
+        GetComponent<PlayerMovement>().enabled = true;
+}
     public void FixedUpdate () {
 
         if (playedNoRep == true) {
@@ -58,24 +51,10 @@ public class Recorder : MonoBehaviour
             //Debug.Log(doPlay);
 	    }   
     }
-    public void Update(){
-        if(Input.GetKeyDown(KeyCode.R)){
-            Debug.Log("Recording");
-            Record ();
-        }
-        if(Input.GetKeyDown(KeyCode.P)){
-            Debug.Log("Playback");
-            RunIt ();
-        }
-    }
 
     public IEnumerator Playback ()
     {
-        // Debug.Log("Playback");
-        // Debug.Log(Player.transform.position.x + "   " + Player.transform.position.y + "      " + Player.transform.position.z);
-         GetComponent<PlayerMovement>().enabled = false;
-        // Player.transform.position = new Vector3 (10, 10,0);
-	    //playedNoRep = true;
+        GetComponent<PlayerMovement>().enabled = false;
 	    for (int i = 0; i < nums.Count; i+=2) {
 		    transform.position = new Vector3 (nums[i], nums[i + 1], startPosi.z);
             yield return new WaitForSeconds(0.015f);

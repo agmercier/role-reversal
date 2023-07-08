@@ -6,7 +6,6 @@ public class FrouneyGoal : MonoBehaviour
 {
     public GameObject sceneSetter;
     public GameObject playerFrouney;
-    public bool isRecording = true;
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +15,10 @@ public class FrouneyGoal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
          if (playerFrouney != null)
         {
-            Debug.Log("Frouney Goal!!!");
-            //playerFrouney.GetComponent<Recorder>().RunIt();
-            sceneSetter.GetComponent<SceneSetter>().FrouneyGoalReached();
+            if(other.gameObject.name.Equals("PlayerFrowney")){
+                Debug.Log("Frouney Goal!!!");
+                sceneSetter.GetComponent<SceneSetter>().FrouneyGoalReached();
+            }
         }
     }
 }
