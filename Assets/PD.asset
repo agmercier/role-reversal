@@ -12,25 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e9e5bc432049d4d82f97f8de08919c, type: 3}
   m_Name: PD
   m_EditorClassIdentifier: 
-  gravityStrength: -77.77777
-  gravityScale: 2.5925925
+  gravityStrength: -64
+  gravityScale: 2.1333334
   fallGravityMult: 1.5
-  maxFallSpeed: 25
+  maxFallSpeed: 30
   fastFallGravityMult: 2
   maxFastFallSpeed: 30
-  runMaxSpeed: 11
-  runAcceleration: 2.5
-  runAccelAmount: 11.363636
+  runMaxSpeed: 5.5
+  runAcceleration: 4
+  runAccelAmount: 36.363636
   runDecceleration: 5
-  runDeccelAmount: 22.727272
-  accelInAir: 0.65
-  deccelInAir: 0.65
-  doConserveMomentum: 1
-  jumpHeight: 3.5
-  jumpTimeToApex: 0.3
-  jumpForce: 23.333332
+  runDeccelAmount: 45.454544
+  accelInAir: 0.617
+  deccelInAir: 0.606
+  doConserveMomentum: 0
+  jumpHeight: 2
+  jumpTimeToApex: 0.25
+  jumpForce: 16
   jumpCutGravityMult: 2
-  jumpHangGravityMult: 0.5
+  jumpHangGravityMult: 0.803
   jumpHangTimeThreshold: 1
   jumpHangAccelerationMult: 1.1
   jumpHangMaxSpeedMult: 1.3
