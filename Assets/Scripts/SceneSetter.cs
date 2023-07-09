@@ -19,15 +19,14 @@ public class SceneSetter : MonoBehaviour
 
     public GameObject[] boxes;
     public GameObject[] boxPositions;    
+    public Vector3 frouneyGoalPosition;
 
     public int runNumber = 0;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        // boxPositions = new Transform[5];
-        // for(int i = 0; i < boxes.Length; i++){
-        //     boxPositions[i] = boxes[i].transform;
-        // }
         SceneOne();
     }
     void Update(){
@@ -64,11 +63,8 @@ public class SceneSetter : MonoBehaviour
 
         gameObject.GetComponent<freeze>().activate = false;
 
-        // for(int i = 0; i < boxes.Length; i++){
-        //     Debug.Log(i);
-        //     Transform boxPos = boxPositions[i];
-        //     boxes[i].transform.position.x = boxPos.position[0];
-        // }
+        frouneyGoal.transform.position = frouneyGoalPosition;
+        frouneyGoal.GetComponent<PlayerMovement>().enabled = false;
     }
 
     public void SceneOne(){
@@ -159,6 +155,26 @@ public class SceneSetter : MonoBehaviour
 
         goomba.SetActive(true);
         goomba.GetComponent<Recorder>().RunIt();
+
+        frouneyGoal.GetComponent<PlayerMovement>().enabled = true;
+        frouneyGoal.GetComponent<Recorder>().Record();
+    }
+
+    public void SceneSeven(){
+        Debug.Log("Scene Seven Start");
+        Reset();
+        runNumber = 7;
+
+        playerSmiley.SetActive(true);
+        playerSmiley.GetComponent<Recorder>().RunIt();
+
+        playerFrouney.SetActive(true);
+        playerFrouney.GetComponent<Recorder>().RunIt();
+
+        goomba.SetActive(true);
+        goomba.GetComponent<Recorder>().RunIt();
+
+        frouneyGoal.GetComponent<Recorder>().RunIt();
     }
 
     public void SmileyGoalReached(){
@@ -179,6 +195,9 @@ public class SceneSetter : MonoBehaviour
         }
         else if(runNumber == 6){
             SceneSix();
+        }
+        else if(runNumber == 7){
+            SceneSeven();
         }
         else{
             Debug.Log("No scene matches this number");
@@ -201,7 +220,10 @@ public class SceneSetter : MonoBehaviour
             SceneFive();
         }
         else if(runNumber == 6){
-            SceneSix();// not supposed to happen
+            SceneSeven();
+        }
+        else if(runNumber == 7){
+            SceneSeven();
         }
         else{
             Debug.Log("No scene matches this number");
