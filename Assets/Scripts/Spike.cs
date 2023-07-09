@@ -19,7 +19,7 @@ public class Spike : MonoBehaviour
             else if(runNumber == 2 && other.gameObject.name.Equals("PlayerFrowney")){
                 sceneSetter.GetComponent<SceneSetter>().SceneTwo();
             }
-            else if(runNumber == 3 && other.gameObject.name.Equals("Goomba")){
+            else if(runNumber == 3 && other.gameObject.name.Equals("PlayerGoomba")){
                 sceneSetter.GetComponent<SceneSetter>().SceneThree();
             }
         }

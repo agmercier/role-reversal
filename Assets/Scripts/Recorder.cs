@@ -59,7 +59,10 @@ public class Recorder : MonoBehaviour
 		    transform.position = new Vector3 (nums[i], nums[i + 1], startPosi.z);
             yield return new WaitForSeconds(0.015f);
         }
-        transform.position = goalPosition.position;
+        if(!gameObject.name.Equals("PlayerGoomba")){
+            transform.position = goalPosition.position;
+        }
+        
         yield return null;
     }
     public void Reset () {

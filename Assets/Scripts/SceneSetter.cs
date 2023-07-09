@@ -12,6 +12,9 @@ public class SceneSetter : MonoBehaviour
     public GameObject playerFrouney;
     public GameObject frouneyGoal;
 
+    public Transform goombaStart;
+    public GameObject goomba;
+
     public GameObject gun;
 
     public GameObject[] boxes;
@@ -46,6 +49,10 @@ public class SceneSetter : MonoBehaviour
         playerFrouney.SetActive(false);
         playerFrouney.transform.position = frouneyStart.position;
         playerFrouney.GetComponent<PlayerMovement>().enabled = false;
+
+        goomba.SetActive(false);
+        goomba.transform.position = goombaStart.position;
+        goomba.GetComponent<PlayerMovement>().enabled = false;
 
         for (int i = 0; i < boxes.Length; i++) {
             boxes[i].transform.position = boxPositions[i].transform.position;
@@ -92,6 +99,25 @@ public class SceneSetter : MonoBehaviour
 
         playerFrouney.SetActive(true);
         playerFrouney.GetComponent<Recorder>().RunIt();
+
+        goomba.SetActive(true);
+        goomba.GetComponent<PlayerMovement>().enabled = true;
+        goomba.GetComponent<Recorder>().Record();
+    }
+
+    public void SceneFour(){
+        Debug.Log("Scene Four Start");
+        Reset();
+        runNumber = 4;
+
+        playerSmiley.SetActive(true);
+        playerSmiley.GetComponent<Recorder>().RunIt();
+
+        playerFrouney.SetActive(true);
+        playerFrouney.GetComponent<Recorder>().RunIt();
+
+        goomba.SetActive(true);
+        goomba.GetComponent<Recorder>().RunIt();
     }
 
     public void SmileyGoalReached(){
@@ -104,6 +130,12 @@ public class SceneSetter : MonoBehaviour
         else if(runNumber == 3){
             SceneThree();
         }
+        else if(runNumber == 4){
+            SceneFour();
+        }
+        else{
+            Debug.Log("No scene matches this number");
+        }
     }
     public void FrouneyGoalReached(){
         if(runNumber == 1){
@@ -115,6 +147,12 @@ public class SceneSetter : MonoBehaviour
         else if(runNumber == 3){
            SceneThree();
         }
+        else if(runNumber == 4){
+            SceneFour();
+        }
+        else{
+            Debug.Log("No scene matches this number");
+        }
     }
     public void Spike(){
         if(runNumber == 1){
@@ -125,6 +163,12 @@ public class SceneSetter : MonoBehaviour
         }
         else if(runNumber == 3){
             SceneThree();
+        }
+        else if(runNumber == 4){
+            SceneFour();
+        }
+        else{
+            Debug.Log("No scene matches this number");
         }
     }
 }
