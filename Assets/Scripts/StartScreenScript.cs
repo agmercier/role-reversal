@@ -31,7 +31,7 @@ public class StartScreenScript : MonoBehaviour
     public void goCredit()
     {
         controlPanel.SetActive(false);
-        panel.SetActive(false);
+        panel.SetActive(true);
         creditPanel.SetActive(true);
     }
 

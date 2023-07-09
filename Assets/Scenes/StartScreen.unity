@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 502458423}
-  creditPanel: {fileID: 0}
+  creditPanel: {fileID: 623042922}
   controlPanel: {fileID: 1834363274}
 --- !u!1 &502458423
 GameObject:
@@ -502,7 +502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &623042923
 RectTransform:
   m_ObjectHideFlags: 0
