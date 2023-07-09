@@ -950,7 +950,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 448570389}
         m_TargetAssemblyTypeName: PauseScreenScript, Assembly-CSharp
-        m_MethodName: goStart
+        m_MethodName: goMainPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13132,7 +13132,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 448570389}
         m_TargetAssemblyTypeName: PauseScreenScript, Assembly-CSharp
-        m_MethodName: goStart
+        m_MethodName: goMainPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15234,7 +15234,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 448570389}
         m_TargetAssemblyTypeName: PauseScreenScript, Assembly-CSharp
-        m_MethodName: goStart
+        m_MethodName: goMainPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17040,7 +17040,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 448570389}
         m_TargetAssemblyTypeName: PauseScreenScript, Assembly-CSharp
-        m_MethodName: goStart
+        m_MethodName: goMainPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30105,7 +30105,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 448570389}
         m_TargetAssemblyTypeName: PauseScreenScript, Assembly-CSharp
-        m_MethodName: goStart
+        m_MethodName: goMainPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

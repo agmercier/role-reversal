@@ -11,8 +11,33 @@ public class PauseScreenScript : MonoBehaviour
     public GameObject creditPanel3;
     public GameObject controlPanel;
 
+    private bool menuUp;
+
     private void Start()
     {
+        menuUp = false;
+        controlPanel.SetActive(false);
+        creditPanel1.SetActive(false);
+        objpanel1.SetActive(false);
+        creditPanel2.SetActive(false);
+        creditPanel3.SetActive(false);
+    }
+
+    void Update (){
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            Debug.Log("sescapefneininininini");
+            if(!menuUp){
+                menuUp = true;
+                goControl();
+            }
+            else{
+                 menuUp = false;
+                goGame();
+            }
+        }
+    }
+
+    public void goMainPanel(){
         controlPanel.SetActive(false);
         creditPanel1.SetActive(false);
         objpanel1.SetActive(true);
@@ -65,5 +90,13 @@ public class PauseScreenScript : MonoBehaviour
     {
         Debug.Log("exitgame");
         Application.Quit();
+    }
+    public void goGame()
+    {
+        controlPanel.SetActive(false);
+        objpanel1.SetActive(false);
+        creditPanel1.SetActive(false);
+        creditPanel2.SetActive(false);
+        creditPanel3.SetActive(false);
     }
 }
