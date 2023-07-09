@@ -16,7 +16,6 @@ public class FrouneyGoal : MonoBehaviour
          if (playerFrouney != null)
         {
             if(other.gameObject.name.Equals("PlayerFrowney")){
-                Debug.Log("Frouney Goal!!!");
                 sceneSetter.GetComponent<SceneSetter>().FrouneyGoalReached();
             }
         }

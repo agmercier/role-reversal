@@ -31,6 +31,8 @@ public class PauseScreenScript : MonoBehaviour
         objpanel.SetActive(false);
         creditPanel2.SetActive(false);
         creditPanel3.SetActive(false);
+
+        ShowCurrentObjective();
     }
 
     void Update (){
@@ -111,49 +113,7 @@ public class PauseScreenScript : MonoBehaviour
     }
 
     // -------------
-    public void ShowObjectiveOne(){
-        controlPanel.SetActive(false);
-        creditPanel1.SetActive(false);
-        objpanel.SetActive(true);
-        creditPanel2.SetActive(false);
-        creditPanel3.SetActive(false);
-    }
-    public void ShowObjectiveTwo(){
-        controlPanel.SetActive(false);
-        creditPanel1.SetActive(false);
-        objpanel.SetActive(true);
-        creditPanel2.SetActive(false);
-        creditPanel3.SetActive(false);
-    }
-    public void ShowObjectiveThree(){
-        controlPanel.SetActive(false);
-        creditPanel1.SetActive(false);
-        objpanel.SetActive(true);
-        creditPanel2.SetActive(false);
-        creditPanel3.SetActive(false);
-    }
-    public void ShowObjectiveFour(){
-        controlPanel.SetActive(false);
-        creditPanel1.SetActive(false);
-        objpanel.SetActive(true);
-        creditPanel2.SetActive(false);
-        creditPanel3.SetActive(false);
-    }
-    public void ShowObjectiveFive(){
-        controlPanel.SetActive(false);
-        creditPanel1.SetActive(false);
-        objpanel.SetActive(true);
-        creditPanel2.SetActive(false);
-        creditPanel3.SetActive(false);
-    }
-    public void ShowObjectiveSix(){
-        controlPanel.SetActive(false);
-        creditPanel1.SetActive(false);
-        objpanel.SetActive(true);
-        creditPanel2.SetActive(false);
-        creditPanel3.SetActive(false);
-    }
-    public void ShowObjectiveSeven(){
+    public void ShowCurrentObjective(){
         controlPanel.SetActive(false);
         creditPanel1.SetActive(false);
         objpanel.SetActive(true);

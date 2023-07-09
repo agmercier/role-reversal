@@ -16,7 +16,6 @@ public class SmileyGoal : MonoBehaviour
          if (playerSmiley != null)
         {
             if(other.gameObject.name.Equals("PlayerSmiley")){
-                Debug.Log("Smiley Goal!!!");
                 sceneSetter.GetComponent<SceneSetter>().SmileyGoalReached();
             }
             
