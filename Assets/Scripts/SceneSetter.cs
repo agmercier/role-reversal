@@ -12,6 +12,8 @@ public class SceneSetter : MonoBehaviour
     public GameObject playerFrouney;
     public GameObject frouneyGoal;
 
+    public GameObject gun;
+
     public GameObject[] boxes;
     public GameObject[] boxPositions;    
 
@@ -48,6 +50,8 @@ public class SceneSetter : MonoBehaviour
         for (int i = 0; i < boxes.Length; i++) {
             boxes[i].transform.position = boxPositions[i].transform.position;
         }   
+
+        gun.GetComponent<Gun2>().RemoveAll();
 
         // for(int i = 0; i < boxes.Length; i++){
         //     Debug.Log(i);
