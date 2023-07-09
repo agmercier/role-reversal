@@ -20,11 +20,11 @@ public class Goomba : MonoBehaviour
                 sceneSetter.GetComponent<SceneSetter>().SceneThree();
             }
             else if(runNumber == 3 && other.gameObject.name.Equals("PlayerFrowney")){
-                Debug.Log("Hit Frouney");
-                sceneSetter.GetComponent<SceneSetter>().SceneFour();    
+                //gameObject.GetComponent<Recorder>().AppendPos(gameObject.transform);
+                sceneSetter.GetComponent<SceneSetter>().SceneFour();
+                //put collision position at end of recording
             }
             else if(runNumber == 4 && other.gameObject.name.Equals("PlayerFrowney")){
-                Debug.Log("Hit Frouney");
                 sceneSetter.GetComponent<SceneSetter>().SceneFour();    
             }
         }

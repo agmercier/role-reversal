@@ -60,6 +60,8 @@ public class SceneSetter : MonoBehaviour
 
         gun.GetComponent<Gun2>().RemoveAll();
 
+        gameObject.GetComponent<freeze>().activate = false;
+
         // for(int i = 0; i < boxes.Length; i++){
         //     Debug.Log(i);
         //     Transform boxPos = boxPositions[i];
@@ -118,6 +120,25 @@ public class SceneSetter : MonoBehaviour
 
         goomba.SetActive(true);
         goomba.GetComponent<Recorder>().RunIt();
+
+        //flag to active
+        gameObject.GetComponent<freeze>().ResetFreeze();
+        StartCoroutine("WaitAndAllowFreeze");
+    }
+
+    public void SceneFive(){
+        Debug.Log("Scene Five Start");
+        Reset();
+        runNumber = 5;
+
+        playerSmiley.SetActive(true);
+        playerSmiley.GetComponent<Recorder>().RunIt();
+
+        playerFrouney.SetActive(true);
+        playerFrouney.GetComponent<Recorder>().RunIt();
+
+        goomba.SetActive(true);
+        goomba.GetComponent<Recorder>().RunIt();
     }
 
     public void SmileyGoalReached(){
@@ -131,6 +152,9 @@ public class SceneSetter : MonoBehaviour
             SceneThree();
         }
         else if(runNumber == 4){
+            SceneFour();
+        }
+        else if(runNumber == 5){
             SceneFour();
         }
         else{
@@ -148,7 +172,10 @@ public class SceneSetter : MonoBehaviour
            SceneThree();
         }
         else if(runNumber == 4){
-            SceneFour();
+            SceneFive();
+        }
+        else if(runNumber == 5){
+            SceneFive();
         }
         else{
             Debug.Log("No scene matches this number");
@@ -167,8 +194,16 @@ public class SceneSetter : MonoBehaviour
         else if(runNumber == 4){
             SceneFour();
         }
+        else if(runNumber == 5){
+            SceneFive();
+        }
         else{
             Debug.Log("No scene matches this number");
         }
+    }
+
+    public IEnumerator WaitAndAllowFreeze(){
+        yield return new WaitForSeconds(1);
+        gameObject.GetComponent<freeze>().activate = true;
     }
 }
