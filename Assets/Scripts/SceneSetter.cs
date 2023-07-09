@@ -21,6 +21,8 @@ public class SceneSetter : MonoBehaviour
     public GameObject[] boxPositions;    
     public Vector3 frouneyGoalPosition;
 
+    public GameObject otherEventSystem;
+
     public int runNumber = 0;
 
     
@@ -32,7 +34,6 @@ public class SceneSetter : MonoBehaviour
     void Update(){
         if(Input.GetKeyUp(KeyCode.R)){
            runNumber = runNumber - 1;
-           Debug.Log(runNumber);
            if(runNumber < 1){
             runNumber = 1;
            }
@@ -62,16 +63,23 @@ public class SceneSetter : MonoBehaviour
         gun.SetActive(false);
 
         gameObject.GetComponent<freeze>().activate = false;
+        
 
         frouneyGoal.transform.position = frouneyGoalPosition;
         frouneyGoal.GetComponent<PlayerMovement>().enabled = false;
-    }
+
+        otherEventSystem.GetComponent<PauseScreenScript>().UpdatePanel(runNumber);
+
+        
+
+        //ShowCurrentObjective();
+    }   
 
     //Smiley gets to goal
     public void SceneOne(){
         Debug.Log("Scene One Start");
-        Reset();
         runNumber = 1;
+        Reset();
 
         playerSmiley.SetActive(true);
         playerSmiley.GetComponent<PlayerMovement>().enabled = true; 
@@ -82,8 +90,8 @@ public class SceneSetter : MonoBehaviour
     //Frowney gets to goal
     public void SceneTwo(){
         Debug.Log("Scene Two Start");
-        Reset();
         runNumber = 2;
+        Reset();
 
         playerSmiley.SetActive(true);
         playerSmiley.GetComponent<Recorder>().RunIt();
@@ -96,8 +104,8 @@ public class SceneSetter : MonoBehaviour
     //Goomba
     public void SceneThree(){
         Debug.Log("Scene Three Start");
-        Reset();
         runNumber = 3;
+        Reset();
 
         playerSmiley.SetActive(true);
         playerSmiley.GetComponent<Recorder>().RunIt();
@@ -113,8 +121,8 @@ public class SceneSetter : MonoBehaviour
     //freeze
     public void SceneFour(){
         Debug.Log("Scene Four Start");
-        Reset();
         runNumber = 4;
+        Reset();
 
         playerSmiley.SetActive(true);
         playerSmiley.GetComponent<Recorder>().RunIt();
@@ -133,8 +141,8 @@ public class SceneSetter : MonoBehaviour
     //Gun
     public void SceneFive(){
         Debug.Log("Scene Five Start");
-        Reset();
         runNumber = 5;
+        Reset();
 
         playerSmiley.SetActive(true);
         playerSmiley.GetComponent<Recorder>().RunIt();
@@ -152,8 +160,8 @@ public class SceneSetter : MonoBehaviour
 
     public void SceneSix(){
         Debug.Log("Scene Six Start");
-        Reset();
         runNumber = 6;
+        Reset();
 
         playerSmiley.SetActive(true);
         playerSmiley.GetComponent<Recorder>().RunIt();
@@ -173,8 +181,8 @@ public class SceneSetter : MonoBehaviour
 
     public void SceneSeven(){
         Debug.Log("Scene Seven Start");
-        Reset();
         runNumber = 7;
+        Reset();
 
         playerSmiley.SetActive(true);
         playerSmiley.GetComponent<Recorder>().RunIt();
@@ -259,6 +267,12 @@ public class SceneSetter : MonoBehaviour
         else if(runNumber == 5){
             SceneFive();
         }
+        else if(runNumber == 6){
+            SceneSix();
+        }
+        else if(runNumber == 7){
+            SceneSeven();
+        }
         else{
             Debug.Log("No scene matches this number");
         }
@@ -267,5 +281,32 @@ public class SceneSetter : MonoBehaviour
     public IEnumerator WaitAndAllowFreeze(){
         yield return new WaitForSeconds(0.5f);
         gameObject.GetComponent<freeze>().activate = true;
+    }
+
+    void ShowCurrentObjective(){
+        if(runNumber == 1){
+            gameObject.GetComponent<PauseScreenScript>().ShowObjectiveOne();
+        }
+        else if(runNumber == 2){
+            gameObject.GetComponent<PauseScreenScript>().ShowObjectiveTwo();
+        }
+        else if(runNumber == 3){
+            gameObject.GetComponent<PauseScreenScript>().ShowObjectiveThree();
+        }
+        else if(runNumber == 4){
+            gameObject.GetComponent<PauseScreenScript>().ShowObjectiveFour();
+        }
+        else if(runNumber == 5){
+            gameObject.GetComponent<PauseScreenScript>().ShowObjectiveFive();
+        }
+        else if(runNumber == 6){
+            gameObject.GetComponent<PauseScreenScript>().ShowObjectiveSix();
+        }
+        else if(runNumber == 7){
+            gameObject.GetComponent<PauseScreenScript>().ShowObjectiveSeven();
+        }
+        else{
+            Debug.Log("No scene matches this number");
+        }
     }
 }
