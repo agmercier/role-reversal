@@ -11676,7 +11676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activate: 0
-  playerFrouney: {fileID: 1362060213}
+  playerGoomba: {fileID: 1949131795}
 --- !u!1 &501839426
 GameObject:
   m_ObjectHideFlags: 0
@@ -12934,6 +12934,7 @@ MonoBehaviour:
   startPosi: {x: 0, y: 0, z: 0}
   Player: {fileID: 1362060213}
   goalPosition: {fileID: 1119081297}
+  freezeActive: 0
 --- !u!114 &1362060215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22480,6 +22481,7 @@ MonoBehaviour:
   startPosi: {x: 0, y: 0, z: 0}
   Player: {fileID: 1949131795}
   goalPosition: {fileID: 1553435136}
+  freezeActive: 0
 --- !u!114 &1949131797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22899,6 +22901,7 @@ MonoBehaviour:
   startPosi: {x: 0, y: 0, z: 0}
   Player: {fileID: 1987998789}
   goalPosition: {fileID: 277224264}
+  freezeActive: 0
 --- !u!1 &2052670649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1306548359674531010, guid: ba1d54bc7a731d74faea45cd60d7c9c7, type: 3}
