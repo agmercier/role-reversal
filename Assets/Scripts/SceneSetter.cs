@@ -203,7 +203,8 @@ public class SceneSetter : MonoBehaviour
     }
 
     public IEnumerator WaitAndAllowFreeze(){
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("Allowed to freeze");
         gameObject.GetComponent<freeze>().activate = true;
     }
 }

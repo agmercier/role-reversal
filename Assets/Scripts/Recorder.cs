@@ -17,6 +17,7 @@ public class Recorder : MonoBehaviour
     private Coroutine playingBack;
 
     public bool freezeActive;
+    public bool freezeNow;
     private Vector3 freezePos;
 
     // Start is called before the first frame update
@@ -62,6 +63,11 @@ public class Recorder : MonoBehaviour
 	    for (int i = 0; i < nums.Count; i+=2) {
 		    transform.position = new Vector3 (nums[i], nums[i + 1], startPosi.z);
 
+            if(freezeNow){
+                freezeNow = false;
+                freezePos = gameObject.transform.position;
+            }
+
             if(freezeActive && transform.position == freezePos && !hasFrozen){
                 Debug.Log(transform.position.y);
                 hasFrozen = true;
@@ -77,8 +83,9 @@ public class Recorder : MonoBehaviour
         yield return null;
     }
     public void Freeze(){
-        freezePos = gameObject.transform.position;
+        Debug.Log("rIt has been called");
         freezeActive = true;
+        freezeNow = true;
     }
 
     public void RunIt () {
