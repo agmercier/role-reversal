@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneSetter : MonoBehaviour
 {
@@ -184,19 +185,20 @@ public class SceneSetter : MonoBehaviour
         runNumber = 7;
         Reset();
 
-        playerSmiley.SetActive(true);
-        playerSmiley.GetComponent<Recorder>().RunIt();
+        // playerSmiley.SetActive(true);
+        // playerSmiley.GetComponent<Recorder>().RunIt();
 
-        playerFrouney.SetActive(true);
-        playerFrouney.GetComponent<Recorder>().RunIt();
+        // playerFrouney.SetActive(true);
+        // playerFrouney.GetComponent<Recorder>().RunIt();
 
-        goomba.SetActive(true);
-        goomba.GetComponent<Recorder>().RunIt();
+        // goomba.SetActive(true);
+        // goomba.GetComponent<Recorder>().RunIt();
 
-        gun.SetActive(true);
-        gun.GetComponent<RecordGun>().RunIt();
+        // gun.SetActive(true);
+        // gun.GetComponent<RecordGun>().RunIt();
 
-        frouneyGoal.GetComponent<Recorder>().RunIt();
+        // frouneyGoal.GetComponent<Recorder>().RunIt();
+        SceneManager.LoadScene(2);
     }
 
     public void SmileyGoalReached(){

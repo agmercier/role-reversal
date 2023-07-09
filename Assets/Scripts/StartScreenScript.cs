@@ -24,7 +24,7 @@ public class StartScreenScript : MonoBehaviour
 
     public void goStart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
      public void goControl()
