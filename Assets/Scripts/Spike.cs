@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    public GameObject sceneSetter;
+    private GameObject sceneSetter;
+
+    void Start(){
+        sceneSetter = GameObject.Find("EventSystem");
+    }
+
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Player")){
             int runNumber = sceneSetter.GetComponent<SceneSetter>().runNumber;
