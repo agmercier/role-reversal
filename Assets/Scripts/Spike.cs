@@ -22,6 +22,9 @@ public class Spike : MonoBehaviour
             else if(runNumber == 3 && other.gameObject.name.Equals("PlayerGoomba")){
                 sceneSetter.GetComponent<SceneSetter>().SceneThree();
             }
+            else if(runNumber == 4 && other.gameObject.name.Equals("PlayerGoomba")){
+                sceneSetter.GetComponent<SceneSetter>().SceneFour();
+            }
             else if(runNumber == 5 && other.gameObject.name.Equals("PlayerFrowney")){
                 GameObject.Find("PlayerFrowney").SetActive(false);
             }

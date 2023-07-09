@@ -13,17 +13,21 @@ public class Recorder : MonoBehaviour
     bool playedNoRep = false;
     public Vector3 startPosi;
     public GameObject Player;
+
     public Transform goalPosition;
+    private Vector3 goalStartPosition;
+
     private Coroutine playingBack;
 
     public bool freezeActive;
     public bool freezeNow;
     private Vector3 freezePos;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update    
     void Start()
     {
         freezeActive = false;
+        goalStartPosition = new Vector3 (goalPosition.position.x, goalPosition.position.y, goalPosition.position.z);
     }
     public void Record () {
         startPosi = transform.position;
@@ -76,8 +80,12 @@ public class Recorder : MonoBehaviour
 
             yield return new WaitForSeconds(0.015f);
         }
-        if(!gameObject.name.Equals("PlayerGoomba")){
+
+        if(gameObject.name.Equals("PlayerGoomba")){
             transform.position = goalPosition.position;
+        }
+        else{
+            transform.position = goalStartPosition;
         }
         
         yield return null;
