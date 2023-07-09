@@ -11,7 +11,7 @@ public class Spike : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.CompareTag("Player")){
+        if(other.gameObject.CompareTag("Player") || other.gameObject.name.Equals("FrowneyGoal")){
             int runNumber = sceneSetter.GetComponent<SceneSetter>().runNumber;
             if(runNumber == 1 && other.gameObject.name.Equals("PlayerSmiley")){
                 sceneSetter.GetComponent<SceneSetter>().SceneOne();
@@ -33,6 +33,15 @@ public class Spike : MonoBehaviour
             }
             else if(runNumber == 5 && other.gameObject.name.Equals("PlayerSmiley")){
                 sceneSetter.GetComponent<SceneSetter>().SceneFive();
+            }
+            else if(runNumber == 6 && other.gameObject.name.Equals("PlayerFrowney")){
+                sceneSetter.GetComponent<SceneSetter>().SceneSix();
+            }
+            else if(runNumber == 6 && other.gameObject.name.Equals("FrowneyGoal")){
+                sceneSetter.GetComponent<SceneSetter>().SceneSix();
+            }
+             else if(other.gameObject.name.Equals("FrowneyGoal")){
+                Debug.Log("Spikessdwifoaifeniofnaoifnh");
             }
         }
         

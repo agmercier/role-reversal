@@ -22,12 +22,14 @@ public class Recorder : MonoBehaviour
     public bool freezeActive;
     public bool freezeNow;
     private Vector3 freezePos;
+    private GameObject sceneSetter;
 
     // Start is called before the first frame update    
     void Start()
     {
         freezeActive = false;
         goalStartPosition = new Vector3 (goalPosition.position.x, goalPosition.position.y, goalPosition.position.z);
+        sceneSetter = GameObject.Find("EventSystem");
     }
     public void Record () {
         startPosi = transform.position;
@@ -81,13 +83,22 @@ public class Recorder : MonoBehaviour
             yield return new WaitForSeconds(0.015f);
         }
 
-        if(gameObject.name.Equals("PlayerGoomba")){
+        //where to tp to in the end
+        int runNumber = sceneSetter.GetComponent<SceneSetter>().runNumber;
+        if(gameObject.name.Equals("PlayerGoomba") && (runNumber < 5)){
             transform.position = goalPosition.position;
+        }
+        else if(gameObject.name.Equals("PlayerGoomba")){
+
+        }
+        else if(gameObject.name.Equals("FrowneyGoal") && (runNumber > 6)){
+
         }
         else{
             transform.position = goalStartPosition;
         }
         
+
         yield return null;
     }
     public void Freeze(){
