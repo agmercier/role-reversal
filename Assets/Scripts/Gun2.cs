@@ -67,7 +67,7 @@ public class Gun2 : MonoBehaviour
         Destroy(b);
     }
 
-    void Shoot(){
+    public void Shoot(){
         GameObject bulletInst = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
         bulletInst.GetComponent<Rigidbody2D>().AddForce(bulletInst.transform.right * bulletSpeed);
         bullets.Add(bulletInst);

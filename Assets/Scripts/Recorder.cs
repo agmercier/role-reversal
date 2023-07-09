@@ -10,7 +10,7 @@ public class Recorder : MonoBehaviour
     List<float> nums = new List<float>();
     float tempX;
     float tempY;
-    bool playedNoRep = false;
+    //bool playedNoRep = false;
     public Vector3 startPosi;
     public GameObject Player;
 
@@ -46,9 +46,9 @@ public class Recorder : MonoBehaviour
 }
     public void FixedUpdate () {
 
-        if (playedNoRep == true) {
-            doPlay = false;
-        }
+        // if (playedNoRep == true) {
+        //     doPlay = false;
+        // }
         if( isRec == true){
             tempX = transform.position.x;
             tempY = transform.position.y;
@@ -58,7 +58,6 @@ public class Recorder : MonoBehaviour
         if(doPlay == true){
             doPlay = false;
             playingBack = StartCoroutine("Playback");
-            //Debug.Log(doPlay);
 	    }   
     }
 
@@ -75,7 +74,6 @@ public class Recorder : MonoBehaviour
             }
 
             if(freezeActive && transform.position == freezePos && !hasFrozen){
-                Debug.Log(transform.position.y);
                 hasFrozen = true;
                 yield return new WaitForSeconds(3);
             }
