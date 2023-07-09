@@ -16,10 +16,13 @@ public class Recorder : MonoBehaviour
     public Transform goalPosition;
     private Coroutine playingBack;
 
+    public bool freezeActive;
+    private Vector3 freezePos;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        freezeActive = false;
     }
     public void Record () {
         startPosi = transform.position;
@@ -55,8 +58,16 @@ public class Recorder : MonoBehaviour
     public IEnumerator Playback ()
     {
         GetComponent<PlayerMovement>().enabled = false;
+        bool hasFrozen = false;
 	    for (int i = 0; i < nums.Count; i+=2) {
 		    transform.position = new Vector3 (nums[i], nums[i + 1], startPosi.z);
+
+            if(freezeActive && transform.position == freezePos && !hasFrozen){
+                Debug.Log(transform.position.y);
+                hasFrozen = true;
+                yield return new WaitForSeconds(3);
+            }
+
             yield return new WaitForSeconds(0.015f);
         }
         if(!gameObject.name.Equals("PlayerGoomba")){
@@ -65,10 +76,11 @@ public class Recorder : MonoBehaviour
         
         yield return null;
     }
-    public void Reset () {
-        nums.Clear();
-        SceneManager.LoadScene("Sample Scene");
+    public void Freeze(){
+        freezePos = gameObject.transform.position;
+        freezeActive = true;
     }
+
     public void RunIt () {
         if(playingBack != null){
             StopCoroutine(playingBack);
@@ -76,6 +88,19 @@ public class Recorder : MonoBehaviour
         isRec = false;
         doPlay = true;
         //StartCoroutine("Playback");
+    }
+
+    public void AppendPos(Transform finalPos){
+        // nums.Add(finalPos.position.x);
+        // nums.Add(finalPos.position.y);
+        // nums.Add(finalPos.position.x);
+        // nums.Add(finalPos.position.y);
+        // nums.Add(finalPos.position.x);
+        // nums.Add(finalPos.position.y);
+    }
+
+    public void ResFrez(){
+        freezeActive = false;
     }
 
 }   
