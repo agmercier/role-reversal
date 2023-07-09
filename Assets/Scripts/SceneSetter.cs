@@ -67,6 +67,7 @@ public class SceneSetter : MonoBehaviour
         frouneyGoal.GetComponent<PlayerMovement>().enabled = false;
     }
 
+    //Smiley gets to goal
     public void SceneOne(){
         Debug.Log("Scene One Start");
         Reset();
@@ -77,6 +78,8 @@ public class SceneSetter : MonoBehaviour
         playerSmiley.GetComponent<Recorder>().Record();
 
     }
+
+    //Frowney gets to goal
     public void SceneTwo(){
         Debug.Log("Scene Two Start");
         Reset();
@@ -89,6 +92,8 @@ public class SceneSetter : MonoBehaviour
         playerFrouney.GetComponent<PlayerMovement>().enabled = true;
         playerFrouney.GetComponent<Recorder>().Record();
     }
+
+    //Goomba
     public void SceneThree(){
         Debug.Log("Scene Three Start");
         Reset();
@@ -105,6 +110,7 @@ public class SceneSetter : MonoBehaviour
         goomba.GetComponent<Recorder>().Record();
     }
 
+    //freeze
     public void SceneFour(){
         Debug.Log("Scene Four Start");
         Reset();
@@ -124,6 +130,7 @@ public class SceneSetter : MonoBehaviour
         StartCoroutine("WaitAndAllowFreeze");
     }
 
+    //Gun
     public void SceneFive(){
         Debug.Log("Scene Five Start");
         Reset();
@@ -139,6 +146,7 @@ public class SceneSetter : MonoBehaviour
         goomba.GetComponent<Recorder>().RunIt();
 
         gun.SetActive(true);
+        gun.GetComponent<RecordGun>().Record();
         gun.GetComponent<Gun2>().readInput = true;
     }
 
@@ -155,6 +163,9 @@ public class SceneSetter : MonoBehaviour
 
         goomba.SetActive(true);
         goomba.GetComponent<Recorder>().RunIt();
+
+        gun.SetActive(true);
+        gun.GetComponent<RecordGun>().RunIt();
 
         frouneyGoal.GetComponent<PlayerMovement>().enabled = true;
         frouneyGoal.GetComponent<Recorder>().Record();
@@ -173,6 +184,9 @@ public class SceneSetter : MonoBehaviour
 
         goomba.SetActive(true);
         goomba.GetComponent<Recorder>().RunIt();
+
+        gun.SetActive(true);
+        gun.GetComponent<RecordGun>().RunIt();
 
         frouneyGoal.GetComponent<Recorder>().RunIt();
     }
