@@ -83,7 +83,6 @@ public class Recorder : MonoBehaviour
         yield return null;
     }
     public void Freeze(){
-        Debug.Log("rIt has been called");
         freezeActive = true;
         freezeNow = true;
     }

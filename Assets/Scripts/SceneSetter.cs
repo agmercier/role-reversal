@@ -59,6 +59,8 @@ public class SceneSetter : MonoBehaviour
         }   
 
         gun.GetComponent<Gun2>().RemoveAll();
+        gun.GetComponent<Gun2>().readInput = false;
+        gun.SetActive(false);
 
         gameObject.GetComponent<freeze>().activate = false;
 
@@ -139,6 +141,24 @@ public class SceneSetter : MonoBehaviour
 
         goomba.SetActive(true);
         goomba.GetComponent<Recorder>().RunIt();
+
+        gun.SetActive(true);
+        gun.GetComponent<Gun2>().readInput = true;
+    }
+
+    public void SceneSix(){
+        Debug.Log("Scene Six Start");
+        Reset();
+        runNumber = 6;
+
+        playerSmiley.SetActive(true);
+        playerSmiley.GetComponent<Recorder>().RunIt();
+
+        playerFrouney.SetActive(true);
+        playerFrouney.GetComponent<Recorder>().RunIt();
+
+        goomba.SetActive(true);
+        goomba.GetComponent<Recorder>().RunIt();
     }
 
     public void SmileyGoalReached(){
@@ -155,7 +175,10 @@ public class SceneSetter : MonoBehaviour
             SceneFour();
         }
         else if(runNumber == 5){
-            SceneFour();
+            SceneSix();
+        }
+        else if(runNumber == 6){
+            SceneSix();
         }
         else{
             Debug.Log("No scene matches this number");
@@ -176,6 +199,9 @@ public class SceneSetter : MonoBehaviour
         }
         else if(runNumber == 5){
             SceneFive();
+        }
+        else if(runNumber == 6){
+            SceneSix();// not supposed to happen
         }
         else{
             Debug.Log("No scene matches this number");
@@ -204,7 +230,6 @@ public class SceneSetter : MonoBehaviour
 
     public IEnumerator WaitAndAllowFreeze(){
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("Allowed to freeze");
         gameObject.GetComponent<freeze>().activate = true;
     }
 }

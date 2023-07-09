@@ -16,7 +16,6 @@ public class freeze : MonoBehaviour
     void Update()
     {
         if(activate && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.UpArrow))){
-            Debug.Log("The space has been pressed");
             playerGoomba.GetComponent<Recorder>().Freeze();
         }
     }

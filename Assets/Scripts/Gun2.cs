@@ -20,27 +20,30 @@ public class Gun2 : MonoBehaviour
 
     public Transform shootPoint;
 
+    public bool readInput;
+
     List<GameObject> bullets = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()    
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        direction = mousePos - (Vector2)gun.position;
-        FaceMouse();
+        if(readInput){
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            direction = mousePos - (Vector2)gun.position;
+            FaceMouse();
 
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)){
-            if(Time.time > readyForNextShot){
-                readyForNextShot = Time.time + 1 / fireRate;
-                Shoot();
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)){
+                if(Time.time > readyForNextShot){
+                    readyForNextShot = Time.time + 1 / fireRate;
+                    Shoot();
+                }
+                
             }
-            
         }
 
         if(maxNumBullets < bullets.Count){
