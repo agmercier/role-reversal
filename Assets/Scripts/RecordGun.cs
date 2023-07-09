@@ -63,8 +63,8 @@ public class RecordGun : MonoBehaviour
         int j = 0;
 	    for (int i = 0; i < rotations.Count; i+=1) {
 		    transform.rotation = rotations.ElementAt(i);
-            
-            if(shotTimes.ElementAt(j) < (Time.time - startPlayShoot)){
+    
+            if(j < shotTimes.Count && (shotTimes.ElementAt(j) < (Time.time - startPlayShoot))){
                 gameObject.GetComponent<Gun2>().Shoot();
                 j++;
             }
